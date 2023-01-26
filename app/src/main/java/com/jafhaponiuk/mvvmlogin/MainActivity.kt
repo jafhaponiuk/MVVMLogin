@@ -8,6 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.jafhaponiuk.mvvmlogin.ui.login.ui.LoginScreen
+import com.jafhaponiuk.mvvmlogin.ui.login.ui.LoginViewModel
 import com.jafhaponiuk.mvvmlogin.ui.theme.MVVMLoginTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginScreen()
+                    LoginScreen(LoginViewModel())
                 }
             }
         }
