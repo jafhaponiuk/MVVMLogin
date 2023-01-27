@@ -15,7 +15,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModel
 import com.jafhaponiuk.mvvmlogin.R
 import kotlinx.coroutines.launch
 
@@ -46,9 +45,9 @@ fun Login(modifier: Modifier, viewModel: LoginViewModel) {
         Column(modifier = modifier) {
             HeaderImage(Modifier.align(Alignment.CenterHorizontally))
             Spacer(modifier = Modifier.padding(16.dp))
-            EmailField(email) { viewModel.OnLoginChange(it, password) }
+            EmailField(email) { viewModel.onLoginChange(it, password) }
             Spacer(modifier = Modifier.padding(4.dp))
-            PasswordField(password) { viewModel.OnLoginChange(email, it) }
+            PasswordField(password) { viewModel.onLoginChange(email, it) }
             Spacer(modifier = Modifier.padding(8.dp))
             ForgotPassword(Modifier.align(Alignment.End))
             Spacer(modifier = Modifier.padding(16.dp))
@@ -64,7 +63,7 @@ fun Login(modifier: Modifier, viewModel: LoginViewModel) {
 @Composable
 fun LoginButton(loginEnable: Boolean, onLoginSelected: () -> Unit) {
     Button(
-        onClick = { onLoginSelected },
+        onClick = { onLoginSelected() },
         modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),
